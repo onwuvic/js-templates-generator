@@ -1,0 +1,56 @@
+{
+  "name": "node-template-generator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "bugs": {
+    "url": "https://github.com/onwuvic/node-templete-generator/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:onwuvic/node-templete-generator.git"
+  },
+  "homepage": "https://github.com/onwuvic/node-templete-generator#readme",
+  "author": "Onwuzor Victor <victor.onwuzor@andela.com>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "node_modules/.bin/eslint ./src",
+    "lint:fix": "yarn lint --fix",
+    "test": "jest --no-cache  --detectOpenHandles --runInBand --forceExit"
+  },
+  "bin": {
+    "generate": "./src/index.js",
+    "-g": "./src/index.js"
+  },
+  "dependencies": {
+    "inquirer": "^6.2.2"
+  },
+  "devDependencies": {
+    "eslint": "^5.12.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "jest": "^24.1.0",
+    "supertest": "^3.4.2"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/index.js",
+      "!**/__tests__/**/*.js?(x)"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/?(*.)(spec|test)js",
+      "<rootDir>/src/**/?(*.)(spec|test).js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/templates"
+    ],
+    "testEnvironment": "node"
+  },
+  "keywords": [
+    "boilerplate",
+    "node",
+    "template",
+    "CLI"
+  ]
+}
