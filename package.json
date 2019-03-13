@@ -1,7 +1,7 @@
 {
   "name": "node-template-generator",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "bugs": {
     "url": "https://github.com/onwuvic/node-templete-generator/issues"
   },
@@ -13,12 +13,20 @@
   "author": "Onwuzor Victor <onwuzorvictor@outlook.com>",
   "license": "MIT",
   "scripts": {
+    "build": "yarn run clean && yarn run build-server",
+    "build-server": "babel src --config-file ./babel.config.js --out-dir dist/src --copy-files --ignore node_modules **.spec.js",
+    "clean": "rm -rf dist && mkdir dist",
     "lint": "node_modules/.bin/eslint ./src",
     "lint:fix": "yarn lint --fix",
-    "start": "node src/index.js",
+    "serve": "node dist/src/index.js",
+    "start": "cross-env NODE_ENV=production yarn run build && yarn run serve",
+    "start:dev": "cross-env NODE_ENV=development  DEBUG=log  nodemon --exec babel-node src/index.js",
     "test": "jest --no-cache  --detectOpenHandles --runInBand --forceExit",
     "validate": "npm-run-all --parallel lint test"
   },
+  "files": [
+    "dist"
+  ],
   "bin": {
     "generate": "./src/index.js",
     "-g": "./src/index.js"
@@ -27,11 +35,19 @@
     "inquirer": "6.2.2"
   },
   "devDependencies": {
+    "@babel/cli": "7.2.3",
+    "@babel/core": "7.3.3",
+    "@babel/node": "7.2.2",
+    "@babel/plugin-proposal-object-rest-spread": "7.3.2",
+    "@babel/plugin-transform-async-to-generator": "7.2.0",
+    "@babel/preset-env": "7.3.1",
+    "babel-eslint": "10.0.1",
     "eslint": "5.12.0",
     "eslint-config-airbnb-base": "13.1.0",
     "eslint-plugin-import": "2.14.0",
     "ghooks": "2.0.4",
     "jest": "24.1.0",
+    "nodemon": "1.18.10",
     "npm-run-all": "4.1.5",
     "supertest": "3.4.2"
   },
