@@ -1,7 +1,9 @@
-/* eslint-disable no-useless-escape */
-function validateInput(input) {
-  if (/^([A-Za-z\-\_\d])+$/.test(input)) return true;
-  return 'Project name may only include letters, numbers, underscores and hashes.';
+class UserValidation {
+  static validateProjectName(input) {
+    // eslint-disable-next-line no-useless-escape
+    if (/^([A-Za-z\-\_\d])+$/.test(input)) return true;
+    return 'Project name may only include letters, numbers, underscores and hashes.';
+  }
 }
 
-module.exports = validateInput;
+export default UserValidation;
