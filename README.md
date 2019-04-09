@@ -1,1 +1,2 @@
 # node-templete-generator
+[![CircleCI](https://circleci.com/gh/onwuvic/templetes-generator.svg?style=svg)](https://circleci.com/gh/onwuvic/templetes-generator)  [![Maintainability](https://api.codeclimate.com/v1/badges/87660de3566aad73ebdd/maintainability)](https://codeclimate.com/github/onwuvic/templetes-generator/maintainability)  [![Test Coverage](https://api.codeclimate.com/v1/badges/87660de3566aad73ebdd/test_coverage)](https://codeclimate.com/github/onwuvic/templetes-generator/test_coverage)
