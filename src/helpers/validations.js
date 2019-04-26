@@ -1,9 +1,13 @@
-class UserValidation {
-  static validateProjectName(input) {
-    // eslint-disable-next-line no-useless-escape
-    if (/^([A-Za-z\-\_\d])+$/.test(input)) return true;
-    return 'Project name may only include letters, numbers, underscores and hashes.';
+import fs from 'fs-extra';
+import ErrorHandler from './errorHandler';
+
+class Validation {
+  static dirExists(dir) {
+    if (fs.existsSync(dir)) {
+      throw (new ErrorHandler('d001', 'A subdirectory or file already exists'));
+    }
+    return (true);
   }
 }
 
-export default UserValidation;
+export default Validation;
