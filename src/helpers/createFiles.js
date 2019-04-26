@@ -4,7 +4,6 @@ class Create {
   static createDirectoryContents(templatePath, newProjectName, currentDirectory) {
     // read the contents of the templates and returns an array of the contents
     const filesToCreate = fs.readdirSync(templatePath);
-
     filesToCreate.forEach((file) => {
       const originalFilePath = `${templatePath}/${file}`;
 
@@ -19,7 +18,6 @@ class Create {
           // eslint-disable-next-line no-param-reassign
           file = '.gitignore';
         }
-
 
         const createFilePath = `${currentDirectory}/${newProjectName}/${file}`;
 
