@@ -1,0 +1,3 @@
+[submodule "templates/postgres-node-express-sequelize"]
+	path = templates/postgres-node-express-sequelize
+	url = https://github.com/onwuvic/api-pen

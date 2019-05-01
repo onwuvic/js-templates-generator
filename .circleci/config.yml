@@ -8,12 +8,12 @@ jobs: # a collection of steps
       - checkout # special step to check out source code to working directory
       - run:
           name: Install project dependencies
-          command: sudo npm install -g yarn@1.12.x && yarn install
+          command: sudo npm install -g npm@latest && npm install
       - restore_cache: # special step to restore the dependency cache
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-          key: yarn-packages-{{ checksum "yarn.lock" }}
+          key: dependency-cache-{{ checksum "package.json" }}
       - save_cache: # special step to save the dependency cache
-          key: yarn-packages-{{ checksum "yarn.lock" }}
+          key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
       - run: # run coverage report
@@ -25,7 +25,7 @@ jobs: # a collection of steps
           name: Run tests
           command: |
             ./cc-test-reporter before-build     # https://github.com/codeclimate/test-reporter/issues/260#issuecomment-369783913
-            yarn test --coverage
+            npm test --coverage
             ./cc-test-reporter after-build $CC_TEST_REPORTER_ID --exit-code $?
       - store_artifacts: # special step to save test results as as artifact
           # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
