@@ -3,26 +3,26 @@
   "version": "1.0.0",
   "main": "dist/index.js",
   "bugs": {
-    "url": "https://github.com/onwuvic/node-templete-generator/issues"
+    "url": "https://github.com/onwuvic/js-templates-generator/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:onwuvic/node-templete-generator.git"
+    "url": "git@github.com:onwuvic/js-templates-generator.git"
   },
-  "homepage": "https://github.com/onwuvic/node-templete-generator#readme",
+  "homepage": "https://github.com/onwuvic/js-templates-generator#readme",
   "author": "Onwuzor Victor <onwuzorvictor@outlook.com>",
   "license": "MIT",
   "scripts": {
     "build": "npm run clean && npm run build-server",
-    "build-server": "npx babel src --out-dir dist --ignore 'node_modules','src/**/*.spec.js','src/**/*.test.js'",
+    "build-server": "node_modules/.bin/babel src --out-dir dist --ignore 'node_modules','src/**/*.spec.js','src/**/*.test.js'",
     "clean": "rm -rf dist && mkdir dist",
     "lint": "node_modules/.bin/eslint ./src",
     "lint:fix": "npm run lint --fix",
-    "serve": "node dist/src/index.js",
+    "serve": "node dist/index.js",
     "start": "cross-env NODE_ENV=production npm run build && npm run serve",
-    "dev": "cross-env NODE_ENV=development  DEBUG=log  nodemon --exec babel-node src/index.js",
+    "dev": "cross-env NODE_ENV=development DEBUG=log node_modules/.bin/nodemon --exec node_modules/.bin/babel-node src/index.js",
     "test": "jest --no-cache  --detectOpenHandles --runInBand --forceExit",
-    "validate": "npm-run-all --parallel lint test"
+    "validate": "node_modules/.bin/npm-run-all --parallel lint test"
   },
   "files": [
     "dist"
@@ -74,7 +74,9 @@
     "node",
     "template",
     "CLI",
-    "generate"
+    "generate",
+    "javascript",
+    "frameworks"
   ],
   "config": {
     "ghooks": {
