@@ -28,8 +28,7 @@
     "dist"
   ],
   "bin": {
-    "generate": "./dist/index.js",
-    "-g": "./dist/index.js"
+    "initiate": "./dist/index.js"
   },
   "dependencies": {
     "fs-extra": "7.0.1",
