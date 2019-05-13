@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700|Open+Sans|Playfair+Display');
+body {
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 21px;
+}
+
+button {
+    border: none;
+    background: #051937;
+    color: #ffffff;
+    border-radius: 3px;
+    padding: 10px;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.main {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+}

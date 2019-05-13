@@ -1,37 +1,37 @@
 {
-  "name": "node-template-generator",
+  "name": "js-templates-generator",
   "version": "1.0.0",
   "main": "dist/index.js",
   "bugs": {
-    "url": "https://github.com/onwuvic/node-templete-generator/issues"
+    "url": "https://github.com/onwuvic/js-templates-generator/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:onwuvic/node-templete-generator.git"
+    "url": "git@github.com:onwuvic/js-templates-generator.git"
   },
-  "homepage": "https://github.com/onwuvic/node-templete-generator#readme",
+  "homepage": "https://github.com/onwuvic/js-templates-generator#readme",
   "author": "Onwuzor Victor <onwuzorvictor@outlook.com>",
   "license": "MIT",
   "scripts": {
-    "build": "yarn run clean && yarn run build-server",
-    "build-server": "babel src --config-file ./babel.config.js --out-dir dist/src --copy-files --ignore node_modules **.spec.js",
+    "build": "npm run clean && npm run build-server",
+    "build-server": "node_modules/.bin/babel src --out-dir dist --ignore 'node_modules','src/**/*.spec.js','src/**/*.test.js'",
     "clean": "rm -rf dist && mkdir dist",
     "lint": "node_modules/.bin/eslint ./src",
-    "lint:fix": "yarn lint --fix",
-    "serve": "node dist/src/index.js",
-    "start": "cross-env NODE_ENV=production yarn run build && yarn run serve",
-    "start:dev": "cross-env NODE_ENV=development  DEBUG=log  nodemon --exec babel-node src/index.js",
+    "lint:fix": "npm run lint --fix",
+    "serve": "node dist/index.js",
+    "start": "cross-env NODE_ENV=production npm run build && npm run serve",
+    "dev": "cross-env NODE_ENV=development DEBUG=log node_modules/.bin/nodemon --exec node_modules/.bin/babel-node src/index.js",
     "test": "jest --no-cache  --detectOpenHandles --runInBand --forceExit",
-    "validate": "npm-run-all --parallel lint test"
+    "validate": "node_modules/.bin/npm-run-all --parallel lint test"
   },
   "files": [
     "dist"
   ],
   "bin": {
-    "generate": "./src/index.js",
-    "-g": "./src/index.js"
+    "initiate": "./dist/index.js"
   },
   "dependencies": {
+    "fs-extra": "7.0.1",
     "inquirer": "6.2.2"
   },
   "devDependencies": {
@@ -73,7 +73,9 @@
     "node",
     "template",
     "CLI",
-    "generate"
+    "generate",
+    "javascript",
+    "frameworks"
   ],
   "config": {
     "ghooks": {
